@@ -1,10 +1,12 @@
 apply plugin: 'com.android.application'
-
+apply plugin: 'android-command'
+apply plugin: 'realm-android'
+//apply plugin: 'android-apt'
 android {
     compileSdkVersion 24
     buildToolsVersion "25.0.1"
     defaultConfig {
-        applicationId "realm.kinglong.cn.com.realmdemo"
+        applicationId "com.kinglong.realmdemo"
         minSdkVersion 10
         targetSdkVersion 24
         versionCode 1
@@ -24,6 +26,18 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
+
+
+    compile 'com.android.support:recyclerview-v7:24.2.1'
+
     compile 'com.android.support:appcompat-v7:24.2.1'
+    compile 'com.android.support:support-v4:24.2.1'
     testCompile 'junit:junit:4.12'
+
+    debugCompile 'com.facebook.stetho:stetho:1.4.1'
+    debugCompile 'com.uphyca:stetho_realm:2.0.0'
+
+
+    compile 'com.jakewharton:butterknife:8.4.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
 }

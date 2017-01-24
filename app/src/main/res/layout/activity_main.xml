@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/activity_main"
@@ -8,11 +8,40 @@
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:paddingTop="@dimen/activity_vertical_margin"
+        android:orientation="vertical"
         android:paddingBottom="@dimen/activity_vertical_margin"
-        tools:context="realm.kinglong.cn.com.realmdemo.MainActivity">
+        tools:context="com.kinglong.realmdemo.MainActivity">
 
-    <TextView
-            android:layout_width="wrap_content"
+    <Button
+            android:textSize="20sp"
+            android:id="@+id/btn_add"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Hello World!"/>
-</RelativeLayout>
+            android:background="@color/colorAccent"
+            android:elevation="5dp"
+            android:text="增、删"
+            android:textAllCaps="false" />
+
+
+    <Button
+            android:textSize="20sp"
+            android:id="@+id/btn_query"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@color/colorAccent"
+            android:elevation="5dp"
+            android:text="改、查"
+            android:textAllCaps="false" />
+
+    <Button
+            android:textSize="20sp"
+            android:id="@+id/btn_async"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@color/colorAccent"
+            android:elevation="5dp"
+            android:text="异步操作"
+            android:textAllCaps="false" />
+</LinearLayout>

@@ -1,4 +1,4 @@
-package realm.kinglong.cn.com.realmdemo;
+package realm.kinglong.kinglong.com.realmdemo;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -22,6 +22,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("realm.kinglong.cn.com.realmdemo", appContext.getPackageName());
+        assertEquals("realm.com.kinglong.com.kinglong.com.realmdemo", appContext.getPackageName());
     }
 }

@@ -1,4 +1,4 @@
-package realm.kinglong.cn.com.realmdemo;
+package realm.kinglong.kinglong.com.realmdemo;
 
 import org.junit.Test;
 
