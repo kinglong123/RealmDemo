@@ -16,6 +16,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
         findViewById(R.id.btn_add).setOnClickListener(this);
         findViewById(R.id.btn_query).setOnClickListener(this);
+
+        findViewById(R.id.btn_rx_query).setOnClickListener(this);
         findViewById(R.id.btn_async).setOnClickListener(this);
     }
 
@@ -29,6 +31,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
             case R.id.btn_query:
                 startActivity(new Intent(MainActivity.this,SearchActivity.class));
                 break;
+            case R.id.btn_rx_query:
+                startActivity(new Intent(MainActivity.this,RxBindingSearchActivity.class));
+                break;
+
             case R.id.btn_async:
                 startActivity(new Intent(MainActivity.this,AddDelOrUpdateActivity.class));
 

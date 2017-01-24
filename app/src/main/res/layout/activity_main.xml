@@ -36,6 +36,17 @@
 
     <Button
             android:textSize="20sp"
+            android:id="@+id/btn_rx_query"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@color/colorAccent"
+            android:elevation="5dp"
+            android:text="RxBinding查"
+            android:textAllCaps="false" />
+
+    <Button
+            android:textSize="20sp"
             android:id="@+id/btn_async"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

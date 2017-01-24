@@ -25,6 +25,11 @@
               android:text="搜索"
               android:id="@+id/bt"/>
 
+    <Button android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="Rx搜索"
+            android:id="@+id/bt2"/>
+
 
             <android.support.v7.widget.RecyclerView
                     android:id="@+id/list"

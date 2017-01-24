@@ -14,6 +14,9 @@ import android.widget.LinearLayout;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.realm.RealmResults;
+import rx.Subscription;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.functions.Action1;
 
 import static com.kinglong.realmdemo.util.RealmHelper.getRealmHelper;
 
@@ -31,7 +34,6 @@ public class SearchActivity extends FragmentActivity implements View.OnClickList
     RecyclerView mList;
 
 
-
     @BindView(R.id.activity_main)
     LinearLayout mActivityMain;
 
@@ -39,6 +41,9 @@ public class SearchActivity extends FragmentActivity implements View.OnClickList
 
     @BindView(R.id.bt)
     Button mBt;
+
+    @BindView(R.id.bt2)
+    Button mBt2;
 
     RealmResults<Person> personList;
 
@@ -52,7 +57,7 @@ public class SearchActivity extends FragmentActivity implements View.OnClickList
 
     }
 
-    public void initView(){
+    public void initView() {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         mList.setLayoutManager(new LinearLayoutManager(this));
@@ -60,10 +65,11 @@ public class SearchActivity extends FragmentActivity implements View.OnClickList
         mSimpleAdapter.setData(personList);
         mList.setAdapter(mSimpleAdapter);
         mBt.setOnClickListener(this);
+        mBt2.setOnClickListener(this);
 
     }
 
-    public void initLocalData(){
+    public void initLocalData() {
         personList = getRealmHelper().getRealm().where(Person.class).findAll();
     }
 
@@ -81,13 +87,14 @@ public class SearchActivity extends FragmentActivity implements View.OnClickList
             case R.id.bt:
                 addSearch();
                 break;
+            case R.id.bt2:
+                addRxSearch();
+                break;
         }
     }
 
 
     private void update(Person person) {
-
-
 
     }
 
@@ -97,5 +104,39 @@ public class SearchActivity extends FragmentActivity implements View.OnClickList
                 .beginsWith("name", s).findAll();
         mSimpleAdapter.setData(personList);
         mSimpleAdapter.notifyDataSetChanged();
+    }
+
+    Subscription mSubscription;
+
+    private void addRxSearch() {
+        String s = mEt.getText().toString();
+        mSubscription = RealmHelper.getRealmHelper().getRealm().where(Person.class)
+                .beginsWith("name", s)
+                .findAllSortedAsync("name")
+                .asObservable()
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(
+                        new Action1<RealmResults<Person>>() {
+                            @Override
+                            public void call(RealmResults<Person> persons) {
+                                personList = persons;
+                                mSimpleAdapter.setData(personList);
+                                mSimpleAdapter.notifyDataSetChanged();
+                            }
+                        }, new Action1<Throwable>() {
+                            @Override
+                            public void call(Throwable throwable) {
+
+                            }
+                        });
+
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (mSubscription != null) {
+            mSubscription.unsubscribe();
+        }
     }
 }
