@@ -23,14 +23,14 @@ public class MainActivity extends Activity implements View.OnClickListener {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_add:
-                startActivity(new Intent(MainActivity.this,AddOrDelActivity.class));
+                startActivity(new Intent(MainActivity.this,AddDelOrUpdateActivity.class));
 
                 break;
             case R.id.btn_query:
                 startActivity(new Intent(MainActivity.this,SearchActivity.class));
                 break;
             case R.id.btn_async:
-                startActivity(new Intent(MainActivity.this,AddOrDelActivity.class));
+                startActivity(new Intent(MainActivity.this,AddDelOrUpdateActivity.class));
 
                 break;
             default:

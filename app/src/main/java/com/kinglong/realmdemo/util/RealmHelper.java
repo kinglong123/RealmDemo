@@ -79,4 +79,17 @@ public class RealmHelper {
     }
 
 
+    /**
+     * update （改）
+     */
+    public void updatePerson(String oldName, String newName) {
+        RealmResults<Person> persons = mRealm.where(Person.class).equalTo("name", oldName).findAll();
+        if(persons!=null && persons.size() >0) {
+            mRealm.beginTransaction();
+            for(Person person :persons){
+                person.setName(newName);
+            }
+            mRealm.commitTransaction();
+        }
+    }
 }

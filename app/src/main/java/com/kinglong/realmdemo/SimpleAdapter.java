@@ -66,6 +66,9 @@ public class SimpleAdapter extends RecyclerView.Adapter<SimpleAdapter.ViewHolder
 
             }
         });
+        holder.mLlPerson.setOnClickListener(mOnItemClickListener);
+        holder.mLlPerson.setTag(person);
+
     }
 
     @Override

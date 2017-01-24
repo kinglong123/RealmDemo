@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:background="@color/colorAccent"
             android:elevation="5dp"
-            android:text="增、删"
+            android:text="增、删、改"
             android:textAllCaps="false" />
 
 
@@ -31,7 +31,7 @@
             android:layout_marginTop="10dp"
             android:background="@color/colorAccent"
             android:elevation="5dp"
-            android:text="改、查"
+            android:text="查"
             android:textAllCaps="false" />
 
     <Button

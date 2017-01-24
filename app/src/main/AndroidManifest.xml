@@ -17,10 +17,14 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".AddOrDelActivity">
+        <activity android:name=".AddDelOrUpdateActivity">
 
         </activity>
         <activity android:name=".SearchActivity">
+
+        </activity>
+
+        <activity android:name=".UpdateActivity">
 
         </activity>
 

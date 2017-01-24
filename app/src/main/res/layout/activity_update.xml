@@ -13,28 +13,24 @@
         android:background="@android:color/white"
         tools:context="com.kinglong.realmdemo.MainActivity">
 
+    <TextView android:layout_width="match_parent"
+              android:layout_height="50dp"
+              android:background="@color/colorAccent"
+              android:textColor="@color/colorPrimaryDark"
+              android:id="@+id/tv"/>
 
     <EditText android:layout_width="match_parent"
               android:layout_height="50dp"
+              android:layout_marginTop="10dp"
               android:background="@color/colorAccent"
+              android:hint="修改值"
               android:textColor="@color/colorPrimaryDark"
               android:id="@+id/et"/>
 
     <Button android:layout_width="match_parent"
               android:layout_height="50dp"
-              android:text="增加"
+              android:text="修改"
               android:id="@+id/bt"/>
-
-
-
-            <android.support.v7.widget.RecyclerView
-                    android:id="@+id/list"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-            >
-            </android.support.v7.widget.RecyclerView>
-
-
 
 
 </LinearLayout>

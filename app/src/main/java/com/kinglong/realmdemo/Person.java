@@ -16,9 +16,11 @@
 
 package com.kinglong.realmdemo;
 
+import java.io.Serializable;
+
 import io.realm.RealmObject;
 
-public class Person extends RealmObject {
+public class Person extends RealmObject implements Serializable {
 
     // All fields are by default persisted.
     private String name;

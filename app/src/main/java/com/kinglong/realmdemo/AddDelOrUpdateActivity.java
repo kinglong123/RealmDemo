@@ -3,6 +3,7 @@ package com.kinglong.realmdemo;
 import com.kinglong.realmdemo.util.RealmHelper;
 import com.kinglong.realmdemo.util.StringUtil;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -21,7 +22,7 @@ import io.realm.RealmResults;
  * Created by lanjl on 2017/1/24.
  */
 
-public class AddOrDelActivity extends FragmentActivity implements View.OnClickListener {
+public class AddDelOrUpdateActivity extends FragmentActivity implements View.OnClickListener {
 
 
     @BindView(R.id.et)
@@ -79,11 +80,27 @@ public class AddOrDelActivity extends FragmentActivity implements View.OnClickLi
     public void onClick(View v) {
 
         switch (v.getId()) {
+
+             case R.id.ll_person:
+                Person person = (Person) v.getTag();
+                update(person);
+                break;
+
             case R.id.bt:
                 addPerson();
                 break;
         }
     }
+
+    private void update(Person person) {
+        Intent intent = new Intent(AddDelOrUpdateActivity.this,UpdateActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putString("personName", person.getName());
+        intent.putExtras(bundle);
+        startActivity(intent);
+    }
+
+
 
     private void addPerson() {
         String s = mEt.getText().toString();

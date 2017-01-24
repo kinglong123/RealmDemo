@@ -45,7 +45,7 @@ public class SearchActivity extends FragmentActivity implements View.OnClickList
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_or_del);
+        setContentView(R.layout.activity_search);
         ButterKnife.bind(this);
         initLocalData();
         initView();
@@ -72,10 +72,23 @@ public class SearchActivity extends FragmentActivity implements View.OnClickList
     public void onClick(View v) {
 
         switch (v.getId()) {
+
+//            case R.id.ll_person:
+//                Person person = (Person) v.getTag();
+//                update(person);
+//                break;
+
             case R.id.bt:
                 addSearch();
                 break;
         }
+    }
+
+
+    private void update(Person person) {
+
+
+
     }
 
     private void addSearch() {

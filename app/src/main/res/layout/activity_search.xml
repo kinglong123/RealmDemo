@@ -22,9 +22,8 @@
 
     <Button android:layout_width="match_parent"
               android:layout_height="50dp"
-              android:text="增加"
+              android:text="搜索"
               android:id="@+id/bt"/>
-
 
 
             <android.support.v7.widget.RecyclerView

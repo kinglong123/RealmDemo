@@ -4,6 +4,7 @@
               android:layout_width="match_parent"
               android:paddingTop="15dp"
               android:id="@+id/ll_person"
+
               android:background="@color/whiles"
               android:layout_height="wrap_content">
 
@@ -21,19 +22,20 @@
                   android:paddingRight="3dp"
                   android:ellipsize="end"
                   android:textColor="@color/colorPrimaryDark"
-                  android:clickable="true"
+
                   android:layout_height="35dp"/>
 
         <Button android:layout_width="50dp"
                   android:gravity="center"
                   android:id="@+id/tv_del"
                   android:text="删除"
+                  android:focusable="false"
                   android:singleLine="true"
                   android:paddingLeft="3dp"
                   android:paddingRight="3dp"
                   android:ellipsize="end"
                   android:textColor="@color/colorPrimaryDark"
-                  android:clickable="true"
+
                   android:layout_height="35dp"/>
 
 
