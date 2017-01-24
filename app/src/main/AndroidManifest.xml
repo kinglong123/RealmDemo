@@ -20,6 +20,11 @@
         <activity android:name=".AddOrDelActivity">
 
         </activity>
+        <activity android:name=".SearchActivity">
+
+        </activity>
+
+
     </application>
 
 </manifest>

@@ -27,7 +27,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
                 break;
             case R.id.btn_query:
-                startActivity(new Intent(MainActivity.this,AddOrDelActivity.class));
+                startActivity(new Intent(MainActivity.this,SearchActivity.class));
                 break;
             case R.id.btn_async:
                 startActivity(new Intent(MainActivity.this,AddOrDelActivity.class));

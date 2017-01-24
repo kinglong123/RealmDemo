@@ -1,7 +1,6 @@
 package com.kinglong.realmdemo;
 
 import com.kinglong.realmdemo.util.RealmHelper;
-import com.kinglong.realmdemo.util.StringUtil;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
@@ -14,14 +13,15 @@ import android.widget.LinearLayout;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import io.realm.RealmChangeListener;
 import io.realm.RealmResults;
+
+import static com.kinglong.realmdemo.util.RealmHelper.getRealmHelper;
 
 /**
  * Created by lanjl on 2017/1/24.
  */
 
-public class AddOrDelActivity extends FragmentActivity implements View.OnClickListener {
+public class SearchActivity extends FragmentActivity implements View.OnClickListener {
 
 
     @BindView(R.id.et)
@@ -64,14 +64,7 @@ public class AddOrDelActivity extends FragmentActivity implements View.OnClickLi
     }
 
     public void initLocalData(){
-        personList = RealmHelper.getRealmHelper().getRealm().where(Person.class).findAll();
-        personList.addChangeListener(new RealmChangeListener<RealmResults<Person>>() {
-            @Override
-            public void onChange(RealmResults<Person> element) {
-                mSimpleAdapter.setData(personList);
-                mSimpleAdapter.notifyDataSetChanged();
-            }
-        });
+        personList = getRealmHelper().getRealm().where(Person.class).findAll();
     }
 
 
@@ -80,20 +73,16 @@ public class AddOrDelActivity extends FragmentActivity implements View.OnClickLi
 
         switch (v.getId()) {
             case R.id.bt:
-                addPerson();
+                addSearch();
                 break;
         }
     }
 
-    private void addPerson() {
+    private void addSearch() {
         String s = mEt.getText().toString();
-        if(StringUtil.isBlank(s)){
-            return;
-        }
-        Person person = new Person();
-        person.setName(s);
-        RealmHelper.getRealmHelper().addPerson(person);
-
-
+        personList = RealmHelper.getRealmHelper().getRealm().where(Person.class)
+                .beginsWith("name", s).findAll();
+        mSimpleAdapter.setData(personList);
+        mSimpleAdapter.notifyDataSetChanged();
     }
 }
